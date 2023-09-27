@@ -46,5 +46,13 @@ class SearchesTest {
         assertTrue(finder.findUserIdBySomeProperFraction().anyMatch(id -> id.equals("2")));
         assertFalse(finder.findUserIdBySomeProperFraction().anyMatch(id -> id.equals("3")));
     }
+
+    @Test
+    void testFindFirstDecimalFractionByUserName() {
+        Optional<Double> result = finder.findFirstDecimalFractionByUserName("Hugo");
+        assertTrue(result.isPresent());
+        assertEquals(0.5, result.get(), 0.001);
+    }
+
 }
 
