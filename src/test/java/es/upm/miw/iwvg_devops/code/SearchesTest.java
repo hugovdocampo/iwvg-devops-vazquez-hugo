@@ -39,5 +39,12 @@ class SearchesTest {
         assertEquals(27, result.get().getNumerator());
         assertEquals(18, result.get().getDenominator());
     }
+
+    @Test
+    void testFindUserIdBySomeProperFraction() {
+        assertTrue(finder.findUserIdBySomeProperFraction().anyMatch(id -> id.equals("1")));
+        assertTrue(finder.findUserIdBySomeProperFraction().anyMatch(id -> id.equals("2")));
+        assertFalse(finder.findUserIdBySomeProperFraction().anyMatch(id -> id.equals("3")));
+    }
 }
 
