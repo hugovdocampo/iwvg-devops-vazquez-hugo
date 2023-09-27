@@ -32,4 +32,12 @@ public class Searches {
                 .map(Fraction::decimal)
                 .findFirst();
     }
+
+    public Optional<Fraction> findFirstProperFractionByUserId(String id) {
+        return users.stream()
+                .filter(user -> user.getId().equals(id))
+                .flatMap(user -> user.getFractions().stream())
+                .filter(Fraction::isProper)
+                .findFirst();
+    }
 }
