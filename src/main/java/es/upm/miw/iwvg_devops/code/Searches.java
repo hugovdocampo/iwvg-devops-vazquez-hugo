@@ -40,4 +40,5 @@ public class Searches {
                 .filter(Fraction::isProper)
                 .findFirst();
     }
+
 }
