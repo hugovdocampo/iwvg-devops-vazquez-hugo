@@ -24,4 +24,12 @@ public class Searches {
                 .map(User::getId)
                 .distinct();
     }
+
+    public Optional<Double> findFirstDecimalFractionByUserName(String name) {
+        return users.stream()
+                .filter(user -> user.getName().equals(name))
+                .flatMap(user -> user.getFractions().stream())
+                .map(Fraction::decimal)
+                .findFirst();
+    }
 }
