@@ -54,5 +54,13 @@ class SearchesTest {
         assertEquals(0.5, result.get(), 0.001);
     }
 
+    @Test
+    void testFindFirstProperFractionByUserId() {
+        Optional<Fraction> result = finder.findFirstProperFractionByUserId("1");
+        assertTrue(result.isPresent());
+        assertEquals(1, result.get().getNumerator());
+        assertEquals(2, result.get().getDenominator());
+    }
+
 }
 
